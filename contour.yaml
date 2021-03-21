@@ -1,0 +1,15 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: contour
+spec:
+  serviceAccountName: default
+  fetch:
+  - git:
+      url: https://github.com/josemzr/tkgs-addon-bootstrap
+      ref: origin/main
+      subPath: contour
+  template:
+  - ytt: {}
+  deploy:
+  - kapp: {}
